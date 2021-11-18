@@ -13,8 +13,9 @@ public class HomePageObject extends BasePage {
 		this.driver = driver;
 	}
 
-	public void clickToFooterMyAccountLink() {
+	public LoginPageObject clickToFooterMyAccountLink() {
 		getBasePage().clickToElement(driver, HomePageUI.FOOTER_LINK);
+		return new LoginPageObject(driver);
 	};
 	
 	

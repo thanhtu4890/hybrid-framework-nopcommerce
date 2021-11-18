@@ -3,6 +3,7 @@ package pageObjects.liveGuru;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
+import pageUIs.liveGuru.MyDashBoardPageUI;
 
 public class MyDashBoardPageObject extends BasePage {
 
@@ -13,8 +14,8 @@ public class MyDashBoardPageObject extends BasePage {
 	}
 
 	public boolean isMyDashBoardHeaderDisplay() {
-		// TODO Auto-generated method stub
-		return false;
+
+		return getBasePage().isElementDisplay(driver, MyDashBoardPageUI.MY_DASHBOARD_HEADER) ;
 	};
 	
 	

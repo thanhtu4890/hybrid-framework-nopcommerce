@@ -42,8 +42,7 @@ public class User_01_Register_Login_Page_Object {
 	  
 	  homePage = new HomePageObject(driver);
 	// Step 1: Click Register
-	  homePage.clickToRegisterLink();
-	  registerPage = new RegisterPageObject(driver);
+	  registerPage = homePage.clickToRegisterLink();
 	// Step 2: Select Gender
 	  registerPage.clickGenderMaleRadioButton();
 	// Step 3: Input Firstname
@@ -62,8 +61,7 @@ public class User_01_Register_Login_Page_Object {
 	  assertTrue(registerPage.isSuccessMessageDisplayed());
 	  
 	// Step 10: Click logout button
-	  registerPage.clickLogoutLink();
-	  homePage = new HomePageObject(driver);
+	  homePage = registerPage.clickLogoutLink();
 	  // Step 11: Verify home page slider display
 	  assertTrue(homePage.isHomePageSliderDisplayed());
   }
@@ -71,17 +69,13 @@ public class User_01_Register_Login_Page_Object {
   @Test
   public void TC_02_Login_To_System() {
 	  //Step1: Click Login link
-	  homePage.clickToLoginLink();
-	  loginPage = new LoginPageObject(driver);
-	  
+	  loginPage = homePage.clickToLoginLink();
 	//Step2: Input Email
 	  loginPage.enterEmail(emailAddress);
 	//Step3: Input Password
 	  loginPage.enterPassword(password);
 	//Step4: Click Login button
-	  loginPage.clickLoginButton();
-	  homePage = new HomePageObject(driver);
-	
+	  homePage = loginPage.clickLoginButton();
 	 //Step5: Verify HomePage Logo Display
 	  assertTrue(homePage.isHomePageSliderDisplayed());
   }

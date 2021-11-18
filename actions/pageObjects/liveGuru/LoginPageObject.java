@@ -27,11 +27,25 @@ public class LoginPageObject extends BasePage {
 		getBasePage().waitForElementVisible(driver, LoginPageUI.LOGIN_BUTTON);
 		getBasePage().clickToElement(driver, LoginPageUI.LOGIN_BUTTON);
 	}
-
-	public String getEmailValidationMessage() {
+		
+	public void loginToSystem(String email, String password) {
+		enterEmail(email);
+		enterPassword(password);
+		clickLoginButton();
+	}
+	
+	public String getEmailEmptyMessage() {
 		return getBasePage().getTextFromElement(driver, LoginPageUI.EMAIL_EMPTY_MESSAGE);
 	}
 
+	public String getEmailInvalidFormatMessage() {
+		return getBasePage().getTextFromElement(driver, LoginPageUI.EMAIL_INVALID_FORMAT_MESSAGE);
+	}
+			
+	public String getPasswordInvalidFormatMessage() {
+		return getBasePage().getTextFromElement(driver, LoginPageUI.PASSWORD_INVALID_FORMAT_MESSAGE);
+	}
+	
 	public String getPasswordValidationMessage() {
 		return getBasePage().getTextFromElement(driver, LoginPageUI.PASSWORD_EMPTY_MESSAGE);
 	}
